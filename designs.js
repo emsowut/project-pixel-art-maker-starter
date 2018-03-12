@@ -9,8 +9,13 @@
 
 // When size is submitted by the user, call makeGrid()
 
-function makeGrid() {
+//store user input height as variable
+var height = document.getElementById('inputHeight');
+//store user input weight as variable
+var weight = document.getElementById('inputWeight');
+//store user input weight as variable
+var color = document.getElementById('colorPicker');
 
-// Your code goes here!
+function makeGrid() {
 
 }
