@@ -1,18 +1,22 @@
-//Development Strategy:
-/*
-1. Define your variables by selecting the DOM elements that the user will interact with. This is where your jQuery skills can come into play! For instance, the submit button, the table, and the color picker need to be accessed. The value of the color selected needs to be stored as well, since the clicked cell in the table needs to be set to the selected color.
-2. Add event listeners to the relevant DOM elements, so that user input can be color values and table sizes can be dynamically set by the user.
-3. Set the size of the cross stitch canvas as an N by M grid with the makeGrid() function. Use your knowledge of JavaScript loops to dynamically clear and create the table based on user input. Each cell should have an event listener that sets the background color of the cell to the selected color.*/
+//The JavaScript code for Emily Somach's Pixel Art Maker
+
+//set default pixel color to black
 var color = "black";
 
+/**
+* @description Draws a grid based on user-input values
+* @param {number} height
+* @param {number} weight
+*/
 function makeGrid(height, weight) {
-    
-    //set 'canvas' variable as table
-    var canvas = document.getElementById('pixelCanvas');
     
     //clear the contents of the table
     $('#pixelCanvas tr').remove();
     
+    //create variable for the table
+    var canvas = document.getElementById('pixelCanvas');
+    
+    //nested for loop to create the rows and cells dynamically
     for (var h = 1; h <= height; h++) {
         var row = canvas.insertRow(h-1);
         for (var w = 1; w <= weight; w++) {
@@ -24,12 +28,17 @@ function makeGrid(height, weight) {
         }
     }
 }
-//if submit button pressed, get height and weight and draw grid
+
+/**
+* @description If submit pressed, call makeGrid function with user-input params
+*/
 document.getElementById('gridPress').addEventListener("click", function() {
     makeGrid(document.getElementById('inputHeight').value, document.getElementById('inputWeight').value);
 })
-//if color picked, set variable 'color' to that color
+
+/**
+* @description If new color is picked, set to that color
+*/
 document.getElementById('colorPicker').addEventListener("change", function() {
-    //store user input color as variable
     color = document.getElementById('colorPicker').value;
 })
