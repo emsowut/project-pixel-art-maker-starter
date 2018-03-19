@@ -16,8 +16,7 @@ function makeGrid(height, weight) {
     //set 'canvas' variable as table
     var canvas = document.getElementById('pixelCanvas');
     //clear the contents of the table
-    //$('#pixelCanvas tr').remove();
-    //$('#pixelCanvas').empty();
+    $('#pixelCanvas tr').remove();
     
     for (var h = 1; h <= height; h++) {
         var row = canvas.insertRow(h-1);
