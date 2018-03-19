@@ -11,22 +11,22 @@
 
 function makeGrid() {
     //store user input color as variable
-    var color = document.getElementById("colorPicker").value;
+    var color = document.getElementById('colorPicker').value;
     
     //change border color to user input
     //$("table").css("border", "1px solid" + color);
     
     //store user input height as variable
-    var height = document.getElementById("inputHeight").value;
+    var height = document.getElementById('inputHeight').value;
     //store user input weight as variable
-    var weight = document.getElementById("inputWeight").value;
+    var weight = document.getElementById('inputWeight').value;
 
     for (var h; h < height; h++) {
-        var row = $("table").insertRow();
+        var row = $('table').insertRow();
         for (var w; w <= weight; w++) {
             row.insertCell();
         }
     }
 }
-sizePicker.addEventListener("submit", makeGrid);
-colorPicker.addEventListener("input", makeGrid);
+/*sizePicker.addEventListener('submit', makeGrid);
+colorPicker.addEventListener('input', makeGrid);*/
