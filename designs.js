@@ -4,25 +4,30 @@
 2. Add event listeners to the relevant DOM elements, so that user input can be color values and table sizes can be dynamically set by the user.
 3. Set the size of the cross stitch canvas as an N by M grid with the makeGrid() function. Use your knowledge of JavaScript loops to dynamically clear and create the table based on user input. Each cell should have an event listener that sets the background color of the cell to the selected color.*/
 
-// Select color input
-// Select size input
 
-// When size is submitted by the user, call makeGrid()
-
-function makeGrid(height, weight) {
-    //clear the contents of the table
-    $('#pixelCanvas tr').remove();
-    //set 'canvas' variable as table
-    var canvas = document.getElementById('pixelCanvas');
+document.getElementById('colorPicker').addEventListener("change", function() {
     //store user input color as variable
     var color = document.getElementById('colorPicker').value;
-    //change border color to user input
-    $('table, tr, td').css('border-color', color);
+    alert(color.value);
+})
+
+function makeGrid(height, weight) {
+    
+    //set 'canvas' variable as table
+    var canvas = document.getElementById('pixelCanvas');
+    //clear the contents of the table
+    //$('#pixelCanvas tr').remove();
+    
     
     for (var h = 1; h <= height; h++) {
         var row = canvas.insertRow(h-1);
         for (var w = 1; w <= weight; w++) {
-            var cell1 = row.insertCell(w-1);
+            var cell = row.insertCell(w-1);
         }
     }
 }
+
+document.getElementById('gridPress').addEventListener("click", function() {
+    $('#pixelCanvas').empty();
+    makeGrid(document.getElementById('inputHeight').value, document.getElementById('inputWeight').value);
+})
