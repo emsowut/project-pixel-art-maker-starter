@@ -10,17 +10,15 @@
 // When size is submitted by the user, call makeGrid()
 
 function makeGrid(height, weight) {
-    //store user input color as variable
-//    var color = document.getElementById('colorPicker').value;
-    
-    //change border color to user input
-    //$("table").css("border", "1px solid" + color);
-    
-    //store user input height as variable
-//    var height = document.getElementById('inputHeight').value;
-    //store user input weight as variable
-//    var weight = document.getElementById('inputWeight').value;
+    //clear the contents of the table
+    $('#pixelCanvas tr').remove();
+    //set 'canvas' variable as table
     var canvas = document.getElementById('pixelCanvas');
+    //store user input color as variable
+    var color = document.getElementById('colorPicker').value;
+    //change border color to user input
+    $('table, tr, td').css('border-color', color);
+    
     for (var h = 1; h <= height; h++) {
         var row = canvas.insertRow(h-1);
         for (var w = 1; w <= weight; w++) {
@@ -28,5 +26,3 @@ function makeGrid(height, weight) {
         }
     }
 }
-/*sizePicker.addEventListener('submit', makeGrid);
-colorPicker.addEventListener('input', makeGrid);*/
