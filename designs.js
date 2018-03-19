@@ -20,11 +20,11 @@ function makeGrid(height, weight) {
 //    var height = document.getElementById('inputHeight').value;
     //store user input weight as variable
 //    var weight = document.getElementById('inputWeight').value;
-
-    for (var h; h < height; h++) {
-        var row = $('table').insertRow();
-        for (var w; w <= weight; w++) {
-            row.insertCell();
+    var canvas = document.getElementById('pixelCanvas');
+    for (var h = 1; h <= height; h++) {
+        var row = canvas.insertRow(h-1);
+        for (var w = 1; w <= weight; w++) {
+            var cell1 = row.insertCell(w-1);
         }
     }
 }
